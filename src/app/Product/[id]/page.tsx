@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import Loader from "@/components/Loader";
-import SuccessModal from "@/components/SuccessModel";
+import SuccessModal from "@/components/SuccessModal";
 import Image from "next/image";
 
 interface Product {
@@ -89,7 +89,7 @@ const SingleProduct = () => {
                 <strong>Category:</strong> {data.category}
               </p>
               <p className="text-lg text-gray-900 mb-6">
-                <strong>Rating:</strong> {data.rating.rate} ({data.rating.count}{" "}
+                <strong>Rating:</strong> {data.rating.rate} ({data.rating.count}
                 reviews)
               </p>
 

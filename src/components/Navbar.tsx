@@ -7,7 +7,6 @@ import {
   SheetContent,
   SheetDescription,
   SheetHeader,
-  SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
 
@@ -23,14 +22,16 @@ const Navbar = () => {
             <Link href="/About" className="mr-5 hover:text-white">
               About
             </Link>
-            
+
             <Link href="/Contact" className="mr-5 hover:text-white">
               Contact
             </Link>
-            
 
             <Link href="/Product" className="hover:text-white">
               Product
+            </Link>
+            <Link href="/Cart" className="hover:text-white p-4">
+              Cart
             </Link>
           </nav>
           <Link
@@ -59,20 +60,22 @@ const Navbar = () => {
             </SheetTrigger>
             <SheetContent>
               <SheetHeader>
-                
                 <SheetDescription>
                   <nav className="space-y-4 text-center text-[#F2AE66] text-lg`">
                     <Link href="/" className="block">
                       Home
                     </Link>
                     <Link href="/About" className="block">
-                    About
+                      About
                     </Link>
                     <Link href="/Contact" className="block">
-                    Contact
+                      Contact
                     </Link>
                     <Link href="/Product" className="block">
-                    Product
+                      Product
+                    </Link>
+                    <Link href="/Cart" className="block">
+                      Cart
                     </Link>
                   </nav>
                 </SheetDescription>
@@ -80,7 +83,6 @@ const Navbar = () => {
             </SheetContent>
           </Sheet>
         </div>
-
       </header>
     </div>
   );

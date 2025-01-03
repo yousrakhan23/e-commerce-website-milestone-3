@@ -1,9 +1,14 @@
 import React from 'react'
+import Carousel from '@/components/Carousel';
+import HeroSection from '@/components/HeroSection';
 
-const page = () => {
+const HomePage = () => {
   return (
-    <div>page</div>
+    <div>
+      <Carousel />
+      <HeroSection />
+    </div>
   )
 }
 
-export default page;
+export default HomePage;

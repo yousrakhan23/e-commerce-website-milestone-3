@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-// Define a type for the product data
+
 interface Product {
   id: number;
   title: string;
@@ -15,7 +15,8 @@ export default async function Product() {
 
   return (
     <>
-      <div className="gap-5 grid lg:grid-cols-3 p-12">
+    <div><h1 className="text-4xl font-bold text-center p-12 text-orange-900 bg-amber-500">Products</h1></div>
+      <div className="gap-5 grid lg:grid-cols-3 p-12 bg-gray-900 ">
         {res.map((val) => (
           <div
             key={val.id}

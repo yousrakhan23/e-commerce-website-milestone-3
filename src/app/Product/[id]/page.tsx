@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
+import Loader from "@/components/Loader";
 
 import Image from "next/image";
 
@@ -20,8 +21,7 @@ interface Product {
 
 const SingleProduct = () => {
   const [data, setData] = useState<Product | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [successMessage, setSuccessMessage] = useState("");
+ 
   const { id } = useParams();
 
   useEffect(() => {
@@ -54,20 +54,19 @@ const SingleProduct = () => {
     }
 
     localStorage.setItem("cart", JSON.stringify(updatedCart));
-    setSuccessMessage("Product added to cart successfully!");
-    setIsModalOpen(true);
+   
   };
 
   return (
-    <div className="bg-green-300 min-h-screen py-12">
+    <div className="bg-slate-400 min-h-screen py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {!data ? (
           <div className="text-center">
-            <p>Loading product...</p>
+            <Loader />
           </div>
         ) : (
-          <div className="bg-green-300 p-8 rounded-lg shadow-lg flex flex-col md:flex-row">
-            {/* Product Image */}
+          <div className=" p-8 rounded-lg shadow-lg flex flex-col md:flex-row">
+            
             <div className="md:w-1/2 mb-8 md:mb-0 flex justify-center">
               <Image
                 src={data.image}
@@ -78,7 +77,7 @@ const SingleProduct = () => {
               />
             </div>
 
-            {/* Product Details */}
+            
             <div className="md:w-1/2 md:pl-8">
               <h1 className="text-4xl font-bold text-gray-900 mb-4">
                 {data.title}
@@ -95,9 +94,9 @@ const SingleProduct = () => {
                 reviews)
               </p>
 
-              {/* Add to Cart Button */}
+            
               <button
-                onClick={handleAddToCart} // Add the product to localStorage
+                onClick={handleAddToCart}
                 className="bg-gray-900 text-white py-3 px-6 rounded-md hover:bg-gary-800"
               >
                 Add to Cart

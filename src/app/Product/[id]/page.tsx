@@ -55,8 +55,9 @@ const SingleProduct = () => {
     }
 
     localStorage.setItem("cart", JSON.stringify(updatedCart));
+    setSuccessMessage("Product added to cart successfully!");
+    setIsModalOpen(true);
   };
-
   return (
     <div className="bg-slate-400 min-h-screen py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import Loader from "@/components/Loader";
-
+import SuccessModal from "@/components/SuccessModel";
 import Image from "next/image";
 
 interface Product {
@@ -21,7 +21,8 @@ interface Product {
 
 const SingleProduct = () => {
   const [data, setData] = useState<Product | null>(null);
- 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
   const { id } = useParams();
 
   useEffect(() => {
@@ -54,7 +55,6 @@ const SingleProduct = () => {
     }
 
     localStorage.setItem("cart", JSON.stringify(updatedCart));
-   
   };
 
   return (
@@ -66,7 +66,6 @@ const SingleProduct = () => {
           </div>
         ) : (
           <div className=" p-8 rounded-lg shadow-lg flex flex-col md:flex-row">
-            
             <div className="md:w-1/2 mb-8 md:mb-0 flex justify-center">
               <Image
                 src={data.image}
@@ -77,7 +76,6 @@ const SingleProduct = () => {
               />
             </div>
 
-            
             <div className="md:w-1/2 md:pl-8">
               <h1 className="text-4xl font-bold text-gray-900 mb-4">
                 {data.title}
@@ -94,7 +92,6 @@ const SingleProduct = () => {
                 reviews)
               </p>
 
-            
               <button
                 onClick={handleAddToCart}
                 className="bg-gray-900 text-white py-3 px-6 rounded-md hover:bg-gary-800"
@@ -105,8 +102,12 @@ const SingleProduct = () => {
           </div>
         )}
       </div>
-
-     
+      <SuccessModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        vCart={true}
+        message={successMessage}
+      />
     </div>
   );
 };

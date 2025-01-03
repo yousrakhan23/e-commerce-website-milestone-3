@@ -36,7 +36,7 @@ const SuccessModal: React.FC<SuccessModalProps> = ({ isOpen, onClose, message, v
                         Close
                     </button>
                     {vCart && <button
-                        onClick={() => router.push('/cart')}
+                        onClick={() => router.push('/Cart')}
                         className="bg-gray-900 text-white py-2 px-4 rounded-md hover:bg-gray-800"
                     >
                         View Cart
